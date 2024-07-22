@@ -5,17 +5,6 @@ from datetime import datetime
 app = Flask(__name__)
 
 
-def remove_duplicate_entries(df, column_list):
-    last_seen = {col: None for col in column_list}
-    for idx, row in df.iterrows():
-        for col in column_list:
-            if row[col] == last_seen[col]:
-                df.at[idx, col] = ""
-            else:
-                last_seen[col] = row[col]
-    return df
-
-
 @app.route('/')
 @app.route('/cashforecast')
 def cashforecast():
@@ -81,7 +70,6 @@ def get_data_CF():
             combined_rows.append(pd.DataFrame([closing_balance_row]))
 
         combined_df = pd.concat(combined_rows, ignore_index=True)
-        combined_df = remove_duplicate_entries(combined_df, correct_order)
 
         numeric_columns = combined_df.select_dtypes(include=['number']).columns
         for col in numeric_columns:
