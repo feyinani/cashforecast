@@ -1,0 +1,24 @@
+.opening-balance-cell {
+  background-color: #d1ecf1;
+  font-weight: bold;
+  color: #0c5460;
+}
+
+.closing-balance-cell {
+  background-color: #f8d7da;
+  font-weight: bold;
+  color: #721c24;
+}
+
+.balance-label-cell {
+  background-color: #d1ecf1;
+  font-weight: bold;
+  color: #0c5460;
+}
+
+.balance-value-cell {
+  background-color: #d1ecf1;
+  font-weight: bold;
+  color: #0c5460;
+  text-align: right;
+}

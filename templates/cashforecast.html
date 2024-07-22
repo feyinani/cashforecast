@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cash Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-enterprise@31.0.1/dist/ag-grid-enterprise.min.js"></script>
+</head>
+<body>
+    <li>
+        <div class="input-group mb-4">
+            <span class="input-wrapper">
+                <input id="startDate" class="input pr-8" type="text" placeholder="Start Date" name="start_date" readonly="" autocomplete="off">
+                <div class="input-suffix-end">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </span>
+            <div class="input-addon">To</div>
+            <span class="input-wrapper">
+                <input id="endDate" class="input pr-8" type="text" placeholder="End Date" name="end_date" readonly="" autocomplete="off">
+                <div class="input-suffix-end">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </span>
+        </div>
+        <button id="dateFilterBtn">Filter</button>
+    </li>
+
+    <label class="switcher">
+        <input type="checkbox" id="currencyToggle">
+        <span class="switcher-toggle"></span>&nbsp&nbsp
+        <p style="font-weight: bold;"> Local Currencies</p>
+    </label>
+
+    <div class="card card-layout-frame">
+        <div class="card-body">
+            <div id="columnControlPanel" style="margin-bottom: 20px;">
+                <strong>Active Columns:</strong>
+                <div id="activeColumns" style="margin-top: 10px;"></div>
+                <div>
+                    <select id="availableColumns"></select>
+                    <button onclick="addColumn()">Add Column</button>
+                </div>
+            </div>
+            <div id="myGrid" style="height: 600px; width:100%;" class="ag-theme-quartz"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
